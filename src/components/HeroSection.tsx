@@ -9,14 +9,14 @@ export default function HeroSection() {
 
   return (
     <section id="home" className="relative w-full lg:min-h-screen bg-white lg:bg-white flex flex-col justify-center overflow-hidden pt-32 lg:pt-16 pb-12">
-      {/* Mobile Only Background Image */}
+      {/* Mobile Only Background Image - Cinematic Layer */}
       <div className="absolute inset-0 z-0 lg:hidden pointer-events-none">
         <img 
           src={peb} 
           alt="Mobile Background" 
-          className="absolute inset-0 w-full h-full object-cover grayscale opacity-20"
+          className="absolute inset-0 w-full h-full object-cover grayscale opacity-[0.35] mix-blend-multiply"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/95 to-white" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/40 to-white" />
       </div>
 
       {/* Background Structural Grid */}
