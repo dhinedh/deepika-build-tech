@@ -14,6 +14,7 @@ import HomeProcess from "@/components/HomeProcess";
 import ContactSection from "@/components/ContactSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
+import SubsidySection from "@/components/SubsidySection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -21,6 +22,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
+      <SubsidySection />
       <TrustedPartners />
       <AboutSection />
       <ServicesSection />
