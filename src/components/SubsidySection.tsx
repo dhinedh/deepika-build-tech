@@ -18,12 +18,12 @@ const SubsidySection = () => {
   ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-16 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-surface-subtle/50 skew-x-12 translate-x-20 z-0" />
       
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           
           {/* Left Side: We Handle Everything */}
           <div>

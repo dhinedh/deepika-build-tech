@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-24 bg-carbon text-surface">
+    <section id="services" className="py-16 bg-carbon text-surface">
       <div className="container mx-auto px-6 lg:px-12">
         
         <motion.div 
@@ -13,7 +13,7 @@ const ServicesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8"
+          className="flex flex-col lg:flex-row justify-between items-end mb-10 gap-8"
         >
           <div className="max-w-2xl">
             <h2 className="section-label mb-6">Core Capabilities</h2>
