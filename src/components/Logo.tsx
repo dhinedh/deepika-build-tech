@@ -13,20 +13,20 @@ const Logo: React.FC<LogoProps> = ({ className = "w-12 h-12", showText = true, v
   
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      <div className="relative h-full aspect-square overflow-hidden rounded-full shadow-lg">
+      <div className="relative w-12 h-12 lg:w-14 lg:h-14 shrink-0 overflow-hidden rounded-full shadow-lg border border-surface-mid">
         <img 
-          src="/assets/logo background blue.png" 
+          src="/assets/logo%20background%20blue.png" 
           alt="Deepika Builtech Logo" 
           className="w-full h-full object-cover"
         />
       </div>
       
       {showText && (
-        <div className="hidden sm:flex flex-col">
-          <span className="font-heading font-black text-xl tracking-tighter leading-none text-ink uppercase">
+        <div className="flex flex-col">
+          <span className="font-heading font-black text-lg lg:text-xl tracking-tighter leading-none text-ink uppercase">
             DEEPIKA
           </span>
-          <span className="font-heading font-black text-xl tracking-tighter leading-none text-amber uppercase">
+          <span className="font-heading font-black text-lg lg:text-xl tracking-tighter leading-none text-amber uppercase">
             BUILTECH
           </span>
         </div>
