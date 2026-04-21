@@ -15,8 +15,8 @@ const marqueePartners = [...partners, ...partners, ...partners];
 
 const TrustedPartners = () => {
   return (
-    <section className="bg-white py-14 overflow-hidden relative">
-      <div className="container mx-auto px-6 mb-10">
+    <section className="bg-white py-6 md:py-14 overflow-hidden relative">
+      <div className="container mx-auto px-6 mb-4 md:mb-10">
         <p className="text-center text-xs font-bold tracking-[0.2em] text-ink-muted uppercase opacity-60">
           Trusted engineering partner for industry leaders
         </p>

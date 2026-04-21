@@ -8,7 +8,7 @@ export default function HeroSection() {
   const [showVideo, setShowVideo] = useState(false);
 
   return (
-    <section id="home" className="relative w-full lg:min-h-screen bg-white lg:bg-white flex flex-col justify-center overflow-hidden pt-32 lg:pt-16 pb-12">
+    <section id="home" className="relative w-full lg:min-h-screen bg-white lg:bg-white flex flex-col justify-center overflow-hidden pt-32 lg:pt-16 pb-4 lg:pb-12">
       {/* Mobile Only Background Image - Cinematic Layer */}
       <div className="absolute inset-0 z-0 lg:hidden pointer-events-none">
         <img 
