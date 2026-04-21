@@ -8,7 +8,7 @@ export default function HeroSection() {
   const [showVideo, setShowVideo] = useState(false);
 
   return (
-    <section id="home" className="relative w-full min-h-screen bg-white flex items-center overflow-hidden pt-24 lg:pt-16">
+    <section id="home" className="relative w-full lg:min-h-screen bg-white flex flex-col justify-center overflow-hidden pt-20 lg:pt-16 pb-12">
       {/* Background Structural Grid */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.4] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px]" />
       
@@ -30,7 +30,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "circOut" }}
-              className="text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-heading font-black text-ink leading-[0.9] tracking-tighter mb-10"
+              className="text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-heading font-black text-ink leading-[0.9] tracking-tighter mb-6"
             >
               Build with <br />
               <span className="text-amber">Intelligence.</span>
@@ -40,7 +40,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="flex flex-col md:flex-row gap-6 mb-8"
+              className="flex flex-col md:flex-row gap-6 mb-6"
             >
                <div className="flex-1 border-l-4 border-amber pl-8 py-2">
                  <p className="text-xl md:text-2xl text-ink font-bold leading-tight mb-4">
