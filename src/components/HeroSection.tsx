@@ -8,7 +8,7 @@ export default function HeroSection() {
   const [showVideo, setShowVideo] = useState(false);
 
   return (
-    <section id="home" className="relative w-full lg:min-h-screen bg-white flex flex-col justify-center overflow-hidden pt-24 lg:pt-16 pb-12">
+    <section id="home" className="relative w-full lg:min-h-screen bg-white flex flex-col justify-center overflow-hidden pt-28 lg:pt-16 pb-12">
       {/* Background Structural Grid */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.4] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px]" />
       
