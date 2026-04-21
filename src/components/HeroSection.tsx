@@ -8,7 +8,17 @@ export default function HeroSection() {
   const [showVideo, setShowVideo] = useState(false);
 
   return (
-    <section id="home" className="relative w-full lg:min-h-screen bg-white flex flex-col justify-center overflow-hidden pt-32 lg:pt-16 pb-12">
+    <section id="home" className="relative w-full lg:min-h-screen bg-white lg:bg-white flex flex-col justify-center overflow-hidden pt-32 lg:pt-16 pb-12">
+      {/* Mobile Only Background Image */}
+      <div className="absolute inset-0 z-0 lg:hidden pointer-events-none">
+        <img 
+          src={peb} 
+          alt="Mobile Background" 
+          className="absolute inset-0 w-full h-full object-cover grayscale opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/95 to-white" />
+      </div>
+
       {/* Background Structural Grid */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.4] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px]" />
       
