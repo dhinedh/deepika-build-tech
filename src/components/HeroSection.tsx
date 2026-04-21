@@ -30,7 +30,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "circOut" }}
-              className="text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] font-heading font-black text-ink leading-[0.9] tracking-tighter mb-10"
+              className="text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-heading font-black text-ink leading-[0.9] tracking-tighter mb-10"
             >
               Build with <br />
               <span className="text-amber">Intelligence.</span>
