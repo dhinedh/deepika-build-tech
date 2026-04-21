@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 import Logo from "./Logo";
 
 const Footer = () => {
@@ -73,9 +74,15 @@ const Footer = () => {
                 </a>
               </li>
               <li className="pt-6 flex gap-4">
-                {/* Social placeholders */}
-                <div className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-sm text-surface-subtle hover:bg-amber hover:text-carbon hover:border-amber cursor-pointer transition-all duration-500 hover:-translate-y-1">in</div>
-                <div className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-sm text-surface-subtle hover:bg-amber hover:text-carbon hover:border-amber cursor-pointer transition-all duration-500 hover:-translate-y-1">x</div>
+                <a href="#" className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-surface-subtle hover:bg-amber hover:text-carbon hover:border-amber cursor-pointer transition-all duration-500 hover:-translate-y-1">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-surface-subtle hover:bg-amber hover:text-carbon hover:border-amber cursor-pointer transition-all duration-500 hover:-translate-y-1">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-surface-subtle hover:bg-amber hover:text-carbon hover:border-amber cursor-pointer transition-all duration-500 hover:-translate-y-1">
+                  <Linkedin className="w-5 h-5" />
+                </a>
               </li>
             </ul>
           </div>

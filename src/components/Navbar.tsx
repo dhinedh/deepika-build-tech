@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, ArrowUpRight } from "lucide-react";
+import { Menu, X, Phone, ArrowUpRight, Facebook, Instagram, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
 import Logo from "./Logo";
 
@@ -146,6 +146,18 @@ const Navbar = () => {
             </div>
 
             <div className="mt-12 text-center pb-2">
+              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-ink-muted mb-6">Connect With Us</p>
+              <div className="flex justify-center gap-6 mb-8">
+                 <a href="#" className="w-12 h-12 flex items-center justify-center bg-surface-subtle text-ink rounded-full active:scale-95 transition-all">
+                    <Facebook className="w-5 h-5" />
+                 </a>
+                 <a href="#" className="w-12 h-12 flex items-center justify-center bg-surface-subtle text-ink rounded-full active:scale-95 transition-all">
+                    <Instagram className="w-5 h-5" />
+                 </a>
+                 <a href="#" className="w-12 h-12 flex items-center justify-center bg-surface-subtle text-ink rounded-full active:scale-95 transition-all">
+                    <Linkedin className="w-5 h-5" />
+                 </a>
+              </div>
               <p className="text-[10px] font-black uppercase tracking-[0.3em] text-ink-muted mb-2">Technical Support</p>
               <a href="mailto:dbtechengg@gmail.com" className="text-sm font-medium text-ink/60 underline underline-offset-4 decoration-amber/30">dbtechengg@gmail.com</a>
             </div>
