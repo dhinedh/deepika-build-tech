@@ -38,8 +38,8 @@ const HomeProcess = () => {
   const x = useTransform(smoothProgress, [0, 1], ["0%", "-68%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[250vh] bg-surface-subtle">
-      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+    <section ref={targetRef} className="relative md:h-[250vh] bg-surface-subtle py-16 md:py-0">
+      <div className="md:sticky md:top-0 md:h-screen flex flex-col justify-center overflow-hidden">
         
         {/* Section Header */}
         <div className="container mx-auto px-6 lg:px-12 mb-10 relative z-10">
@@ -63,8 +63,8 @@ const HomeProcess = () => {
               <p className="text-ink-muted text-base font-sans leading-relaxed mb-4">
                 Explore our seven-stage engineering journey, optimized for industrial efficiency.
               </p>
-              {/* Progress Track (Mini) */}
-              <div className="w-full h-[2px] bg-surface-mid rounded-full overflow-hidden">
+              {/* Progress Track (Mini) - Hidden on Mobile */}
+              <div className="hidden md:block w-full h-[2px] bg-surface-mid rounded-full overflow-hidden">
                 <motion.div 
                    style={{ scaleX: smoothProgress }}
                    className="h-full bg-amber origin-left"
@@ -74,63 +74,80 @@ const HomeProcess = () => {
           </div>
         </div>
 
-        {/* Horizontal Moving Cards Wrapper */}
-        <div className="relative z-10">
-          <motion.div style={{ x }} className="flex gap-6 pr-24 lg:pr-[35vw] pl-6 lg:pl-12">
-            {steps.map((step, idx) => {
-              const Icon = step.icon;
-              return (
-                <motion.div
-                  key={step.num}
-                  className="w-[300px] md:w-[380px] shrink-0 group/card relative"
-                >
-                  <div className="bg-white border border-surface-mid p-8 md:p-10 rounded-[2.5rem] h-full transition-all duration-700 hover:bg-carbon group-hover/card:bg-carbon group-hover/card:border-carbon group-hover/card:shadow-2xl group-hover/card:shadow-carbon/20 relative overflow-hidden">
-                    
-                    <div className="flex justify-between items-start mb-10 relative z-10">
-                      <div className="flex flex-col gap-4">
-                        <div className="w-14 h-14 rounded-2xl bg-surface-subtle border border-surface-mid flex items-center justify-center group-hover/card:bg-amber group-hover/card:scale-110 transition-all duration-700">
-                          <Icon className="w-6 h-6 text-ink group-hover/card:text-carbon" />
-                        </div>
-                        <div className="flex items-center gap-2 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700">
-                          <div className="w-4 h-[1px] bg-amber" />
-                          <span className="text-[10px] font-black uppercase tracking-widest text-amber">Phase {step.num}</span>
-                        </div>
-                      </div>
-                      <span className="text-5xl md:text-6xl font-heading font-black text-black/[0.03] group-hover/card:text-white/[0.04] transition-colors duration-700 select-none">
-                        {step.num}
-                      </span>
-                    </div>
-
-                    <div className="relative z-10">
-                      <h3 className="text-xl md:text-2xl font-heading font-black text-ink group-hover/card:text-white mb-3 transition-colors tracking-tight leading-tight">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm md:text-base text-ink-muted group-hover/card:text-white/50 leading-relaxed font-sans transition-colors mb-6">
-                        {step.desc}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Connecting Technical Line */}
-                  {idx !== steps.length - 1 && (
-                    <div className="absolute top-1/2 -right-3 w-6 h-[1px] bg-amber/10 hidden md:block" />
-                  )}
-                </motion.div>
-              );
-            })}
-          </motion.div>
+        {/* Swipe instructions for Mobile */}
+        <div className="md:hidden px-6 mb-4 flex items-center gap-3">
+          <div className="w-1.5 h-1.5 rounded-full bg-amber animate-pulse" />
+          <span className="text-[10px] font-black uppercase tracking-widest text-ink-muted">Swipe left to Explore</span>
         </div>
 
-        {/* Floating Instruction */}
+        {/* Cards Wrapper - Motion on Desktop, Native Scroll on Mobile */}
+        <div className="relative z-10 w-full">
+          {/* Desktop Version */}
+          <motion.div 
+            style={{ x }} 
+            className="hidden md:flex gap-6 pr-[35vw] pl-12"
+          >
+            {steps.map((step, idx) => (
+              <StepCard key={step.num} step={step} idx={idx} />
+            ))}
+          </motion.div>
+
+          {/* Mobile Version - Native Horizontal Scroll */}
+          <div className="md:hidden flex gap-4 overflow-x-auto px-6 pb-8 snap-x snap-mandatory no-scrollbar">
+            {steps.map((step, idx) => (
+              <div key={step.num} className="snap-center">
+                <StepCard step={step} idx={idx} mobile />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Floating Instruction - Desktop only */}
         <motion.div 
           style={{ opacity: useTransform(smoothProgress, [0, 0.1], [1, 0]) }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+          className="hidden md:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-3"
         >
           <span className="text-[10px] font-black uppercase tracking-[0.5em] text-ink-muted/50">Scroll Down</span>
           <div className="w-px h-8 bg-gradient-to-b from-amber to-transparent animate-pulse" />
         </motion.div>
       </div>
     </section>
+  );
+};
+
+const StepCard = ({ step, idx, mobile = false }: { step: any, idx: number, mobile?: boolean }) => {
+  const Icon = step.icon;
+  return (
+    <div className={`${mobile ? 'w-[280px]' : 'w-[300px] md:w-[380px]'} shrink-0 group/card relative`}>
+      <div className="bg-white border border-surface-mid p-8 md:p-10 rounded-[2.5rem] h-full transition-all duration-700 hover:bg-carbon group-hover/card:bg-carbon group-hover/card:border-carbon group-hover/card:shadow-2xl group-hover/card:shadow-carbon/20 relative overflow-hidden">
+        <div className="flex justify-between items-start mb-8 md:mb-10 relative z-10">
+          <div className="flex flex-col gap-4">
+            <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-surface-subtle border border-surface-mid flex items-center justify-center group-hover/card:bg-amber group-hover/card:scale-110 transition-all duration-700">
+              <Icon className="w-5 h-5 md:w-6 md:h-6 text-ink group-hover/card:text-carbon" />
+            </div>
+            <div className={`flex items-center gap-2 transition-opacity duration-700 ${mobile ? 'opacity-100' : 'opacity-0 group-hover/card:opacity-100'}`}>
+              <div className="w-4 h-[1px] bg-amber" />
+              <span className="text-[10px] font-black uppercase tracking-widest text-amber">Phase {step.num}</span>
+            </div>
+          </div>
+          <span className="text-4xl md:text-6xl font-heading font-black text-black/[0.03] group-hover/card:text-white/[0.04] transition-colors duration-700 select-none">
+            {step.num}
+          </span>
+        </div>
+
+        <div className="relative z-10">
+          <h3 className="text-lg md:text-2xl font-heading font-black text-ink group-hover/card:text-white mb-3 transition-colors tracking-tight leading-tight">
+            {step.title}
+          </h3>
+          <p className="text-xs md:text-base text-ink-muted group-hover/card:text-white/50 leading-relaxed font-sans transition-colors">
+            {step.desc}
+          </p>
+        </div>
+      </div>
+      {!mobile && idx !== steps.length - 1 && (
+        <div className="absolute top-1/2 -right-3 w-6 h-[1px] bg-amber/10 hidden md:block" />
+      )}
+    </div>
   );
 };
 
